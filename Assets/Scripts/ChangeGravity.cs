@@ -66,6 +66,7 @@ public class ChangeGravity : MonoBehaviour
     void UpdateFrame(Vector3 NewDirection)
     {
         Vector3 temp;
+        float forwardRot = Vector3.Dot(Vector3.one, forward);
 
         // Do nothing if we're changing to the same gravity
         if (NewDirection == direction)
@@ -111,7 +112,7 @@ public class ChangeGravity : MonoBehaviour
             up = right;
             right = -temp;
         }
-        character.rotation = Quaternion.LookRotation(forward, up);
+        character.rotation = Quaternion.LookRotation(forward * forwardRot, up);
     }
 
 }
