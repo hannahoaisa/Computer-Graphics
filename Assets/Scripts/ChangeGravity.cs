@@ -112,7 +112,19 @@ public class ChangeGravity : MonoBehaviour
             up = right;
             right = -temp;
         }
-        character.rotation = Quaternion.LookRotation(forward * forwardRot, up);
+        //character.rotation = Quaternion.LookRotation(forward * forwardRot, up);
+        StartCoroutine(smoothCharacterRotation());
     }
 
+    IEnumerator smoothCharacterRotation()
+    {
+        Quaternion orgRot = character.transform.rotation;
+        Quaternion dstRot = Quaternion.LookRotation(forward, up);
+        for (float time = 0.0f; time < 1.0f; )
+        {
+            time += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(orgRot, dstRot, time);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
