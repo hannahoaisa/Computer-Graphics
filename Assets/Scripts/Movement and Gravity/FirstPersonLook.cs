@@ -7,8 +7,8 @@ public class FirstPersonLook : MonoBehaviour
     public float sensitivity = 2;
     public float smoothing = 1.5f;
 
-    Vector2 velocity;
-    Vector2 frameVelocity;
+    public Vector2 velocity;
+    public Vector2 frameVelocity;
 
     public Gravity gravity;
 
@@ -30,16 +30,13 @@ public class FirstPersonLook : MonoBehaviour
         Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
         frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+        float oldX = velocity.x;
         velocity += frameVelocity;
 
         velocity.y = Mathf.Clamp(velocity.y, -90, 90);
 
         // Rotate camera up-down and controller left-right from velocity.
         transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);       // Works perfectly (I think)
-
-        // If you comment out this line, you can't look left or right but you can rotate the character.
-        // There's something that this line is doing that keeps resetting the character's rotation.
-        // I have no clue what to do to fix it.
-        //character.localRotation = Quaternion.AngleAxis(velocity.x, gravity.up);         // Messes literally everything up
+        character.RotateAround(character.position, character.up, velocity.x - oldX);
     }
 }

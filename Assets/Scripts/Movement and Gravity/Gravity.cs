@@ -72,7 +72,7 @@ public class Gravity : MonoBehaviour
         Vector3 keepAxes = new Vector3();
         Vector3 newForward = new Vector3();
 
-        // Find where gravity is pulling before the shift and update the keepAxes
+        // Find where gravity is pulling before the shift and then update the keepAxes
         if (direction == Vector3.up
             || direction == Vector3.down)
         {
@@ -92,15 +92,15 @@ public class Gravity : MonoBehaviour
         // Flatten the forward vector so it ignores values in axes that shouldn't be considered
         // E.g. If the character is rotating from Down to Up, their forward vector will have a non-zero y value
         // that shouldn't be considered if, while rotating, they suddenly get pulled East. It would result in them
-        // landing East but on one of their corners if the forward vector isn't flattened.
+        // landing East on one of their corners if the forward vector isn't flattened.
         Vector3 forward = character.forward;
         Vector3 flattenedForward = new Vector3(forward.x * keepAxes.x, forward.y * keepAxes.y, forward.z * keepAxes.z);
 
-        // 180 degree rotation along right axis, e.g. flip upside down
+        // 180 degree rotation along the character's right axis, e.g. flip upside down
         // Ex: Pulling Down to pulling Up
         if (NewDirection == -direction)
         {
-            newForward = -flattenedForward;
+            newForward = Quaternion.AngleAxis(180f, character.right) * flattenedForward;
         }
         // -90 degree rotation along right axis
         // Ex: Pulling Down to pulling North
