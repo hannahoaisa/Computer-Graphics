@@ -1,3 +1,3 @@
 # Computer-Graphics
-Bottom's Up
+Bottom's Up\n
 Scott Gocon, Josh Mundell, Hannah Oaisa
