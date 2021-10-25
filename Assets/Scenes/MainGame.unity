@@ -1164,7 +1164,9 @@ MonoBehaviour:
   character: {fileID: 695685052}
   sensitivity: 2
   smoothing: 1.5
-  gravity: {fileID: 0}
+  velocity: {x: 0, y: 0}
+  frameVelocity: {x: 0, y: 0}
+  gravity: {fileID: 275786694}
 --- !u!1 &1403964902
 GameObject:
   m_ObjectHideFlags: 0
