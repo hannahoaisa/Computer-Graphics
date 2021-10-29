@@ -1,59 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gravity : MonoBehaviour
 {
-    public float strength = 9.8f;
+    public float strength;
     public Vector3 direction;
     public Vector3 normal;
+    public bool isPaused;
+    public Button resumeButton;
     public Transform character;
 
     // Start is called before the first frame update
     void Start()
     {
+        strength = 9.8f;
         direction = Vector3.down;
         normal = -direction;
+        isPaused = false;
+        resumeButton.onClick.AddListener(resume);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Down (default gravity)
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown("escape"))
         {
-            UpdateGravity(Vector3.down);
-            direction = Vector3.down;
+            isPaused = true;
         }
-        // Up
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (true)
         {
-            UpdateGravity(Vector3.up);
-            direction = Vector3.up;
-        }
-        // North
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            UpdateGravity(Vector3.forward);
-            direction = Vector3.forward;
-        }
-        // East
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            UpdateGravity(Vector3.right);
-            direction = Vector3.right;
-        }
-        // South
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            UpdateGravity(Vector3.back);
-            direction = Vector3.back;
-        }
-        // West
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            UpdateGravity(Vector3.left);
-            direction = Vector3.left;
+            // Down (default gravity)
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                UpdateGravity(Vector3.down);
+                direction = Vector3.down;
+                Debug.Log("Down");
+            }
+            // Up
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                UpdateGravity(Vector3.up);
+                direction = Vector3.up;
+                Debug.Log("Up");
+            }
+            // North
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                UpdateGravity(Vector3.forward);
+                direction = Vector3.forward;
+                Debug.Log("North");
+            }
+            // East
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                UpdateGravity(Vector3.right);
+                direction = Vector3.right;
+                Debug.Log("East");
+            }
+            // South
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                UpdateGravity(Vector3.back);
+                direction = Vector3.back;
+                Debug.Log("South");
+            }
+            // West
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                UpdateGravity(Vector3.left);
+                direction = Vector3.left;
+                Debug.Log("West");
+            }
         }
     }
 
@@ -157,5 +176,9 @@ public class Gravity : MonoBehaviour
             character.rotation = Quaternion.Slerp(orgRot, dstRot, time);
             yield return new WaitForEndOfFrame();
         }
+    }
+    public void resume()
+    {
+        isPaused = false;
     }
 }
