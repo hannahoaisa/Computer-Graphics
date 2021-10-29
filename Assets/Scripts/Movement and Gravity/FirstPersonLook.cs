@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstPersonLook : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class FirstPersonLook : MonoBehaviour
     Transform character;
     public float sensitivity = 2;
     public float smoothing = 1.5f;
+    public Button resumeButton;
+    public bool isPaused = false;
 
     public Vector2 velocity;
     public Vector2 frameVelocity;
@@ -22,21 +25,33 @@ public class FirstPersonLook : MonoBehaviour
     {
         // Lock the mouse cursor to the game screen.
         Cursor.lockState = CursorLockMode.Locked;
+        resumeButton.onClick.AddListener(play);
     }
 
     void LateUpdate()
     {
-        // Get smooth velocity.
-        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-        frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-        float oldX = velocity.x;
-        velocity += frameVelocity;
+        if (!isPaused && Input.GetKeyDown("escape"))
+        {
+            isPaused = true;
+        }
+        if (!isPaused)
+        {
+            // Get smooth velocity.
+            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
+            frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+            float oldX = velocity.x;
+            velocity += frameVelocity;
 
-        velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+            velocity.y = Mathf.Clamp(velocity.y, -90, 90);
 
-        // Rotate camera up-down and controller left-right from velocity.
-        transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);       // Works perfectly (I think)
-        character.RotateAround(character.position, character.up, velocity.x - oldX);
+            // Rotate camera up-down and controller left-right from velocity.
+            transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);       // Works perfectly (I think)
+            character.RotateAround(character.position, character.up, velocity.x - oldX);
+        }
+    }
+    public void play()
+    {
+        isPaused = false;
     }
 }
