@@ -29,6 +29,7 @@ public class Jump : MonoBehaviour
         if (Input.GetButtonDown("Jump") && (!groundCheck || groundCheck.isGrounded))
         {
             rigidbody.AddForce(gravity.normal * 100 * jumpStrength);
+            Debug.Log("Jump");
             Jumped?.Invoke();
         }
     }
