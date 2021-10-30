@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Main
   - ShowOnPause
+  - StandupButton
+  - Door
+  - EndGoal
+  - StandupButtonTrigger
   layers:
   - Default
   - TransparentFX
