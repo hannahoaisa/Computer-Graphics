@@ -14,6 +14,7 @@ public class FirstPersonLook : MonoBehaviour
     public Vector2 frameVelocity;
 
     public Gravity gravity;
+    public UIManager uiScript;
 
     void Reset()
     {
@@ -25,16 +26,12 @@ public class FirstPersonLook : MonoBehaviour
     {
         // Lock the mouse cursor to the game screen.
         Cursor.lockState = CursorLockMode.Locked;
-        resumeButton.onClick.AddListener(play);
     }
 
     void LateUpdate()
     {
-        if (!isPaused && Input.GetKeyDown("escape"))
-        {
-            isPaused = true;
-        }
-        if (true)
+        isPaused = uiScript.isPaused;
+        if (!isPaused)
         {
             // Get smooth velocity.
             Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -49,9 +46,5 @@ public class FirstPersonLook : MonoBehaviour
             transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);       // Works perfectly (I think)
             character.RotateAround(character.position, character.up, velocity.x - oldX);
         }
-    }
-    public void play()
-    {
-        isPaused = false;
     }
 }

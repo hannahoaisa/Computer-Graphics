@@ -11,6 +11,7 @@ public class Gravity : MonoBehaviour
     public bool isPaused;
     public Button resumeButton;
     public Transform character;
+    public UIManager uiScript;
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +20,13 @@ public class Gravity : MonoBehaviour
         direction = Vector3.down;
         normal = -direction;
         isPaused = false;
-        resumeButton.onClick.AddListener(resume);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            isPaused = true;
-        }
-        if (true)
+        isPaused = uiScript.isPaused;
+        if (!isPaused)
         {
             // Down (default gravity)
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -176,9 +173,5 @@ public class Gravity : MonoBehaviour
             character.rotation = Quaternion.Slerp(orgRot, dstRot, time);
             yield return new WaitForEndOfFrame();
         }
-    }
-    public void resume()
-    {
-        isPaused = false;
     }
 }

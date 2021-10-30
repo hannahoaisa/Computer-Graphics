@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    GameObject[] pauseObjects;
+    public GameObject[] pauseObjects;
+    public GameObject[] showOnDeath;
     public bool isPaused = false;
-    public Button resumeButton;
+    public bool isDead;
+    public FirstPersonMovement fpMove;
+    public Button resumeButton, restartButton, quitButton;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(resumeHandle);
+        restartButton.onClick.AddListener(restartHandle);
+        quitButton.onClick.AddListener(quitHandle);
         Time.timeScale = 1;
-        pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         hidePaused();
     }
     void Update()
     {
-        if (!isPaused && Input.GetKeyDown("escape"))
+        isDead = fpMove.isDead;
+        if (!isPaused && Input.GetKeyDown("escape") || isDead)
         {
             Pause();
         }
@@ -29,7 +35,14 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        showPaused();
+        if (!isDead)
+        {
+            showPaused();
+        }
+        else
+        {
+            showDead();
+        }
     }
     public void Resume()
     {
@@ -38,6 +51,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         hidePaused();
+        hideDead();
     }
 
     public void showPaused()
@@ -57,8 +71,35 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void showDead()
+    {
+        foreach (GameObject g in showOnDeath)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    //hides objects with ShowOnPause tag
+    public void hideDead()
+    {
+        foreach (GameObject g in showOnDeath)
+        {
+            g.SetActive(false);
+        }
+    }
+
     public void resumeHandle()
     {
         Resume();
+    }
+    public void restartHandle()
+    {
+        isPaused = false;
+        isDead = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void quitHandle()
+    {
+        Application.Quit();
     }
 }

@@ -10,6 +10,7 @@ public class FirstPersonMovement : MonoBehaviour
     public bool canRun = true;
     public bool IsRunning { get; private set; }
     public bool isWalking;
+    public bool isDead;
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
 
@@ -19,6 +20,14 @@ public class FirstPersonMovement : MonoBehaviour
 
     public Gravity gravity;
     public ConstantForce customGravity;         // Using this so we're not affecting global gravity
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Deadly")
+        {
+            isDead = true;
+        }
+    }
 
     void Awake()
     {
