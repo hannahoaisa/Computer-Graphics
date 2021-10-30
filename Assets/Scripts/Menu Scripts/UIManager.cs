@@ -8,9 +8,12 @@ public class UIManager : MonoBehaviour
 {
     public GameObject[] pauseObjects;
     public GameObject[] showOnDeath;
+    public GameObject[] showOnWin;
     public bool isPaused = false;
     public bool isDead;
+    public bool gameWon;
     public FirstPersonMovement fpMove;
+    public PlayerTriggerHandler ptHandler;
     public Button resumeButton, restartButton, quitButton;
 
     private void Start()
@@ -24,7 +27,8 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         isDead = fpMove.isDead;
-        if (!isPaused && Input.GetKeyDown("escape") || isDead)
+        gameWon = ptHandler.gameWon;
+        if (!isPaused && Input.GetKeyDown("escape") || isDead || gameWon)
         {
             Pause();
         }
@@ -35,11 +39,16 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        if (!isDead)
+        if (!isDead
+            && !gameWon)
         {
             showPaused();
         }
-        else
+        else if (gameWon)
+        {
+            showWon();
+        }
+        else if(isDead)
         {
             showDead();
         }
@@ -52,6 +61,7 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         hidePaused();
         hideDead();
+        hideWin();
     }
 
     public void showPaused()
@@ -79,10 +89,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void showWon()
+    {
+        foreach (GameObject g in showOnWin)
+        {
+            g.SetActive(true);
+        }
+    }
+
     //hides objects with ShowOnPause tag
     public void hideDead()
     {
         foreach (GameObject g in showOnDeath)
+        {
+            g.SetActive(false);
+        }
+    }
+    public void hideWin()
+    {
+        foreach (GameObject g in showOnWin)
         {
             g.SetActive(false);
         }
@@ -96,10 +121,12 @@ public class UIManager : MonoBehaviour
     {
         isPaused = false;
         isDead = false;
+        gameWon = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void quitHandle()
     {
         Application.Quit();
+        Debug.Log("Game quit.");
     }
 }

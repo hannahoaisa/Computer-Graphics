@@ -40,8 +40,7 @@ public class FirstPersonMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Apply custom gravity.
-        //customGravity.force = rigidbody.mass * gravity.strength * gravity.direction;
-        Physics.gravity = gravity.direction * gravity.strength * rigidbody.mass;
+        customGravity.force = rigidbody.mass * gravity.strength * gravity.direction;
 
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
