@@ -8,15 +8,21 @@ public class PlayerTriggerHandler : MonoBehaviour
     public GameObject standupButton;
     public GameObject topDoor;
     public GameObject bottomDoor;
+    public AudioSource buttonPress;
+    public AudioSource openDoor;
+    public AudioSource closeDoor;
+    public AudioSource timerDone;
+    public Animator door1;
+    public Animator door2;
     public bool gameWon;
 
     private bool _isNearButton = false;
     private bool _isNearBed = false;
-    private Material _stanupButtonScreen;
+    private Material _standupButtonScreen;
     // Start is called before the first frame update
     void Start()
     {
-        _stanupButtonScreen = standupButton.GetComponent<Renderer>().materials[1];
+        _standupButtonScreen = standupButton.GetComponent<Renderer>().materials[1];
         gameWon = false;
     }
 
@@ -28,6 +34,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             Debug.Log("Button Pushed");
             StartCoroutine(ButtonTimer());
+            buttonPress.Play();
         }
         if (Input.GetKeyDown(KeyCode.E)
             && _isNearBed)
@@ -61,14 +68,23 @@ public class PlayerTriggerHandler : MonoBehaviour
 
     IEnumerator ButtonTimer()
     {
-        topDoor.SetActive(false);
-        bottomDoor.SetActive(false);
-        _stanupButtonScreen.SetColor("_Color", new Color32(0xf2, 0x23, 0x13, 0xff));
+        //topDoor.SetActive(false);
+        //bottomDoor.SetActive(false);
+        openDoor.Play();
+        _standupButtonScreen.SetColor("_Color", new Color32(0xf2, 0x23, 0x13, 0xff));
+        yield return new WaitForSeconds(0.5f);
+        door1.SetTrigger("Button Press");
+        door2.SetTrigger("Button Press");
         yield return new WaitForSeconds(1.2f);
-        _stanupButtonScreen.SetColor("_Color", new Color32(0x78, 0x11, 0x0a, 0xff));
+        _standupButtonScreen.SetColor("_Color", new Color32(0x78, 0x11, 0x0a, 0xff));
         yield return new WaitForSeconds(1.2f);
-        _stanupButtonScreen.SetColor("_Color", Color.black);
-        topDoor.SetActive(true);
-        bottomDoor.SetActive(true);
+        _standupButtonScreen.SetColor("_Color", Color.black);
+        closeDoor.Play();
+        timerDone.Play();
+        yield return new WaitForSeconds(0.5f);
+        door1.SetTrigger("Timer Done");
+        door2.SetTrigger("Timer Done");
+        //topDoor.SetActive(true);
+        //bottomDoor.SetActive(true);
     }
 }
