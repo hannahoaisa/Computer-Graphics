@@ -27,7 +27,7 @@ public class EagleMove : MonoBehaviour
         // Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.useGravity = false;
-        eagleAnimator.SetBool("isWalking", false);
+        //eagleAnimator.SetBool("isWalking", false);
     }
 
     void FixedUpdate()
@@ -45,11 +45,11 @@ public class EagleMove : MonoBehaviour
             || targetVelocity.y > 0.01
             || targetVelocity.z > 0.01)
         {
-            eagleAnimator.SetBool("isWalking", true);
+            //eagleAnimator.SetBool("isWalking", true);
         }
         else
         {
-            eagleAnimator.SetBool("isWalking", false);
+            //eagleAnimator.SetBool("isWalking", false);
         }
 
         // Apply movement.

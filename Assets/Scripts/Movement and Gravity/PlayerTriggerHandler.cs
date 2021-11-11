@@ -58,7 +58,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         }
     }
 
-    private void OnTriggerleave(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "StandupButtonTrigger")
         {
