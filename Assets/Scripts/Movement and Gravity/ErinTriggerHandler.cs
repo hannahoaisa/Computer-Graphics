@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerTriggerHandler : MonoBehaviour
+public class ErinTriggerHandler : MonoBehaviour
 {
     public GameObject standupButton;
     public GameObject topDoor;
@@ -68,8 +68,8 @@ public class PlayerTriggerHandler : MonoBehaviour
 
     IEnumerator ButtonTimer()
     {
-        //topDoor.SetActive(false);
-        //bottomDoor.SetActive(false);
+        topDoor.SetActive(false);
+        bottomDoor.SetActive(false);
         openDoor.Play();
         _standupButtonScreen.SetColor("_Color", new Color32(0xf2, 0x23, 0x13, 0xff));
         yield return new WaitForSeconds(0.5f);
@@ -84,7 +84,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         door1.SetTrigger("Timer Done");
         door2.SetTrigger("Timer Done");
-        //topDoor.SetActive(true);
-        //bottomDoor.SetActive(true);
+        topDoor.SetActive(true);
+        bottomDoor.SetActive(true);
     }
 }

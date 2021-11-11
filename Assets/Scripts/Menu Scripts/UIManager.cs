@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public bool gameWon;
     public ErinMove erinMove;
     public EagleMove eagleMove;
-    public PlayerTriggerHandler ptHandler;
+    public ErinTriggerHandler erHandler;
     public Button resumeButton, restartButton, quitButton;
 
     private void Start()
@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         {
             isDead = true;
         }
-        gameWon = ptHandler.gameWon;
+        gameWon = erHandler.gameWon;
         if (!isPaused && Input.GetKeyDown("escape") || isDead || gameWon)
         {
             Pause();
@@ -89,6 +89,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (GameObject g in showOnDeath)
         {
+            Debug.Log("Show G");
             g.SetActive(true);
         }
     }
