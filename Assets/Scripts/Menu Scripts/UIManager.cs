@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
     public bool isPaused = false;
     public bool isDead;
     public bool gameWon;
-    public FirstPersonMovement fpMove;
+    public ErinMove erinMove;
+    public EagleMove eagleMove;
     public PlayerTriggerHandler ptHandler;
     public Button resumeButton, restartButton, quitButton;
 
@@ -26,7 +27,10 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        isDead = fpMove.isDead;
+        if (erinMove.isDead || eagleMove.isDead)
+        {
+            isDead = true;
+        }
         gameWon = ptHandler.gameWon;
         if (!isPaused && Input.GetKeyDown("escape") || isDead || gameWon)
         {

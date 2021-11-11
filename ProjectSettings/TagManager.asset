@@ -11,6 +11,8 @@ TagManager:
   - EndGoal
   - StandupButtonTrigger
   - ShowOnWin
+  - ActiveCharacter
+  - InactiveCharacter
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Character
   - 
   - 
   - 
