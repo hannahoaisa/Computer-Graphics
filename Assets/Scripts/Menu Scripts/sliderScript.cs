@@ -17,6 +17,7 @@ public class sliderScript : MonoBehaviour
         music.SetValueWithoutNotify(PlayerPrefs.GetFloat("musicVol"));
         soundScript.SetMusicLevel(Mathf.Log10(PlayerPrefs.GetFloat("musicVol")) * 20);
         sensitivity.enabled = true;
+        sensitivity.SetValueWithoutNotify(PlayerPrefs.GetFloat("sensitivity"));
     }
 
     // Update is called once per frame
@@ -26,5 +27,6 @@ public class sliderScript : MonoBehaviour
         PlayerPrefs.SetFloat("effectsVol", effects.value);
         soundScript.SetMusicLevel(Mathf.Log10(music.value) * 20);
         PlayerPrefs.SetFloat("musicVol", music.value);
+        PlayerPrefs.SetFloat("sensitivity", sensitivity.value);
     }
 }

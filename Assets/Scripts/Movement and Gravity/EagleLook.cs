@@ -29,7 +29,8 @@ public class EagleLook : MonoBehaviour
             && character.tag == "ActiveCharacter")
         {
             // Get smooth velocity.
-            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X") * PlayerPrefs.GetFloat("sensitivity", 1),
+                Input.GetAxisRaw("Mouse Y") * PlayerPrefs.GetFloat("sensitivity", 1));
             Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
             frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
             float oldX = velocity.x;

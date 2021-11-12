@@ -7,6 +7,7 @@ public class Buttons : MonoBehaviour
     //Make sure to attach these Buttons in the Inspector
     public Button playButton, loadButton, controlsButton, settingsButton, quitButton;
     public GameObject mainMenu, controlsMenu, settingsMenu, effectsSlide, musicSlide, sensitiveSlide;
+    public AudioSource buttonSound;
 
     void Start()
     {

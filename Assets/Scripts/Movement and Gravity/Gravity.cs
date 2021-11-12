@@ -9,9 +9,9 @@ public class Gravity : MonoBehaviour
     public Vector3 direction;
     public Vector3 normal;
     public bool isPaused;
-    public Button resumeButton;
     public Transform character;
     public UIManager uiScript;
+    public AudioSource gravitySound;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +81,7 @@ public class Gravity : MonoBehaviour
         {
             return;
         }
+        gravitySound.Play();
 
         // keepAxes tracks what axes are actually relevant on the rotation given where gravity is pulling.
         // E.g. If gravity is pulling Down, the character's forward vector should not have a y value. 

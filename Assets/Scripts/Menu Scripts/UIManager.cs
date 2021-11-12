@@ -9,19 +9,23 @@ public class UIManager : MonoBehaviour
     public GameObject[] pauseObjects;
     public GameObject[] showOnDeath;
     public GameObject[] showOnWin;
+    public GameObject[] showOnSettings;
     public bool isPaused = false;
     public bool isDead;
     public bool gameWon;
     public ErinMove erinMove;
     public EagleMove eagleMove;
     public ErinTriggerHandler erHandler;
-    public Button resumeButton, restartButton, quitButton;
+    public Button resumeButton, nextButton, restartButton, quitButton, settings, returnButton;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(resumeHandle);
         restartButton.onClick.AddListener(restartHandle);
         quitButton.onClick.AddListener(quitHandle);
+        nextButton.onClick.AddListener(nextHandle);
+        settings.onClick.AddListener(settingsHandle);
+        returnButton.onClick.AddListener(returnHandle);
         Time.timeScale = 1;
         hidePaused();
     }
@@ -118,6 +122,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void showSettings()
+    {
+        foreach (GameObject g in showOnSettings)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    public void hideSettings()
+    {
+        foreach (GameObject g in showOnSettings)
+        {
+            g.SetActive(false);
+        }
+    }
+
     public void resumeHandle()
     {
         Resume();
@@ -134,4 +154,21 @@ public class UIManager : MonoBehaviour
         Application.Quit();
         Debug.Log("Game quit.");
     }
+
+    public void nextHandle()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void settingsHandle()
+    {
+        showSettings();
+        hidePaused();
+    }
+
+    public void returnHandle()
+    {
+        hideSettings();
+        showPaused();
+    }
+
 }
