@@ -13,6 +13,8 @@ TagManager:
   - ShowOnWin
   - ActiveCharacter
   - InactiveCharacter
+  - Erin
+  - Eagle
   layers:
   - Default
   - TransparentFX
