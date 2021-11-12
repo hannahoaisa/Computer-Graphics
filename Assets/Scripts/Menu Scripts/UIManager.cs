@@ -12,10 +12,10 @@ public class UIManager : MonoBehaviour
     public GameObject[] showOnSettings;
     public bool isPaused = false;
     public bool isDead;
-    public bool gameWon;
+    public bool isGameWon;
     public ErinMove erinMove;
     public EagleMove eagleMove;
-    public ErinTriggerHandler erHandler;
+    public Objective objective;
     public Button resumeButton, nextButton, restartButton, quitButton, settings, returnButton;
 
     private void Start()
@@ -35,8 +35,8 @@ public class UIManager : MonoBehaviour
         {
             isDead = true;
         }
-        gameWon = erHandler.gameWon;
-        if (!isPaused && Input.GetKeyDown("escape") || isDead || gameWon)
+        isGameWon = objective.isGameWon;
+        if (!isPaused && Input.GetKeyDown("escape") || isDead || isGameWon)
         {
             Pause();
         }
@@ -48,11 +48,11 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         if (!isDead
-            && !gameWon)
+            && !isGameWon)
         {
             showPaused();
         }
-        else if (gameWon)
+        else if (isGameWon)
         {
             showWon();
         }
@@ -146,7 +146,7 @@ public class UIManager : MonoBehaviour
     {
         isPaused = false;
         isDead = false;
-        gameWon = false;
+        isGameWon = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void quitHandle()
