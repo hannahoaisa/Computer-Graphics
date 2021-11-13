@@ -5,7 +5,7 @@ public class EagleLook : MonoBehaviour
 {
     [SerializeField]
     Transform character;
-    public float sensitivity = 2;
+    public float sensitivity = 12;
     public float smoothing = 1.5f;
     public Button resumeButton;
     public bool isPaused = false;
