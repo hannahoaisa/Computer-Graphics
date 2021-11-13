@@ -38,22 +38,22 @@ public class Gravity : MonoBehaviour
             // Up
             if (Input.GetMouseButtonUp(1) && mouseGravUp.upChange)
             {
-                UpdateGravity(character.up);
-                direction = character.up;
+                UpdateGravity(Vector3.up);
+                direction = Vector3.up;
                 Debug.Log("Up");
             }
             // North
             else if (Input.GetMouseButtonUp(1) && mouseGravForward.forwardChange)
             {
-                UpdateGravity(character.forward);
-                direction = character.forward;
+                UpdateGravity(Vector3.forward);
+                direction = Vector3.forward;
                 Debug.Log("North");
             }
             // East
             else if (Input.GetMouseButtonUp(1) && mouseGravRight.rightChange)
             {
-                UpdateGravity(character.right);
-                direction = character.right;
+                UpdateGravity(Vector3.right);
+                direction = Vector3.right;
                 Debug.Log("East");
             }
             // West
