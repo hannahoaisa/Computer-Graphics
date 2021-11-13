@@ -15,7 +15,6 @@ public class UIManager : MonoBehaviour
     public bool isGameWon;
     public ErinMove erinMove;
     public EagleMove eagleMove;
-    public GravityUI gravityUI;
     public Objective objective;
     public Button resumeButton, nextButton, restartButton, quitButton, settings, returnButton;
 
@@ -49,7 +48,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         if (!isDead
-            && !isGameWon && !gravityUI.gravityChange)
+            && !isGameWon)
         {
             showPaused();
         }
@@ -94,6 +93,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (GameObject g in showOnDeath)
         {
+            Debug.Log("Show G");
             g.SetActive(true);
         }
     }

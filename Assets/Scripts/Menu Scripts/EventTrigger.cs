@@ -9,6 +9,7 @@ public class EventTrigger : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("Mouse Over");
         buttonHovSound.Play();
     }
 }
