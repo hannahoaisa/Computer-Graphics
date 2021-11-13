@@ -11,18 +11,19 @@ public class UIManager : MonoBehaviour
     public GameObject[] showOnWin;
     public GameObject[] showOnSettings;
     public bool isPaused = false;
-    public bool isDead;
+    public bool isDead = false;
     public bool isGameWon;
     public ErinMove erinMove;
     public EagleMove eagleMove;
     public GravityUI gravityUI;
     public Objective objective;
-    public Button resumeButton, nextButton, restartButton, quitButton, settings, returnButton;
+    public Button resumeButton, nextButton, restartFromPause, restartFromDeath, quitButton, settings, returnButton;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(resumeHandle);
-        restartButton.onClick.AddListener(restartHandle);
+        restartFromPause.onClick.AddListener(restartHandle);
+        restartFromDeath.onClick.AddListener(restartHandle);
         quitButton.onClick.AddListener(quitHandle);
         nextButton.onClick.AddListener(nextHandle);
         settings.onClick.AddListener(settingsHandle);
@@ -144,6 +145,7 @@ public class UIManager : MonoBehaviour
     }
     public void restartHandle()
     {
+        Debug.Log("Restart");
         isPaused = false;
         isDead = false;
         isGameWon = false;
