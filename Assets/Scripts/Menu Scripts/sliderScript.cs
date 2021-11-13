@@ -7,6 +7,7 @@ public class sliderScript : MonoBehaviour
 {
     public Slider effects, music, sensitivity;
     public Sound soundScript;
+    public AudioSource effectsSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +29,6 @@ public class sliderScript : MonoBehaviour
         soundScript.SetMusicLevel(Mathf.Log10(music.value) * 20);
         PlayerPrefs.SetFloat("musicVol", music.value);
         PlayerPrefs.SetFloat("sensitivity", sensitivity.value);
+        //effects.OnDeselect();
     }
 }

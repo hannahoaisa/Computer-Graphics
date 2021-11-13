@@ -177,11 +177,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8586216, y: 2.1188712, z: 0.10250286}
   m_Center: {x: 2.0000007, y: -1.1101208, z: -0.0000001359731}
---- !u!95 &2238084 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 2c33def46326fbd42a987a9fc6dc1154, type: 3}
-  m_PrefabInstance: {fileID: 1652080121}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2556856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,16 +2330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766dae8966ce9764cadc9e7a45bb85c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standupButton: {fileID: 440149633}
-  topDoor: {fileID: 2238082}
-  bottomDoor: {fileID: 1630967849}
-  buttonPress: {fileID: 257671409}
-  openDoor: {fileID: 27769199}
-  closeDoor: {fileID: 1338539947}
-  timerDone: {fileID: 1101222034}
-  door1: {fileID: 2238084}
-  door2: {fileID: 1630967851}
-  gameWon: 0
 --- !u!1 &149096213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,18 +2372,14 @@ MonoBehaviour:
   - {fileID: 1579571275}
   isPaused: 0
   isDead: 0
-  gameWon: 0
+  isGameWon: 0
   erinMove: {fileID: 136673914}
   eagleMove: {fileID: 157770613}
-<<<<<<< HEAD
 <<<<<<< HEAD
   objective: {fileID: 0}
 =======
   objective: {fileID: 510500005}
 >>>>>>> e123511ca20ed4518c0336bf7037601cc9dac2e4
-=======
-  erHandler: {fileID: 136673915}
->>>>>>> parent of 3998b08 (A partially functional UI based gravity switcher)
   resumeButton: {fileID: 461801767}
   nextButton: {fileID: 1662671942}
   restartButton: {fileID: 1269919549}
@@ -2683,16 +2664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766dae8966ce9764cadc9e7a45bb85c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standupButton: {fileID: 440149633}
-  topDoor: {fileID: 2238082}
-  bottomDoor: {fileID: 1630967849}
-  buttonPress: {fileID: 0}
-  openDoor: {fileID: 0}
-  closeDoor: {fileID: 0}
-  timerDone: {fileID: 0}
-  door1: {fileID: 0}
-  door2: {fileID: 0}
-  gameWon: 0
 --- !u!1001 &168592582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2911,10 +2882,7 @@ Transform:
   - {fileID: 594619294}
   - {fileID: 1616938187}
 <<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 770438106}
-=======
->>>>>>> parent of 3998b08 (A partially functional UI based gravity switcher)
   m_Father: {fileID: 0}
   m_RootOrder: 7
 =======
@@ -4208,6 +4176,7 @@ MonoBehaviour:
   music: {fileID: 1355810679}
   sensitivity: {fileID: 1187562304}
   soundScript: {fileID: 447425302}
+  effectsSound: {fileID: 0}
 --- !u!4 &447425304
 Transform:
   m_ObjectHideFlags: 0
@@ -7126,6 +7095,133 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2741366875190742945, guid: 8445c2f2cdade23428f048bc7936ae73, type: 3}
   m_PrefabInstance: {fileID: 136673905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &770438104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770438106}
+  - component: {fileID: 770438105}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &770438105
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770438104}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3111055911929585892, guid: a68bee24b926c88438d12c66d533f4d0, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5dbe92a40a9696340b9c7a6c3a5b633f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &770438106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770438104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 247542794}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &784981474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10135,7 +10231,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   normal: {x: 0, y: 0, z: 0}
   isPaused: 0
-  resumeButton: {fileID: 461801767}
   character: {fileID: 136673906}
   uiScript: {fileID: 149096214}
   gravitySound: {fileID: 1616938188}
@@ -13450,6 +13545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579571276}
   - component: {fileID: 1579571277}
+  - component: {fileID: 1579571278}
   m_Layer: 5
   m_Name: EffectsSlider
   m_TagString: Untagged
@@ -13530,6 +13626,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1579571278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579571275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d078819d91f8f4493eadea49d2e3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectsDeselect: {fileID: 770438105}
 --- !u!1001 &1592340056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13859,11 +13968,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8586216, y: 2.3529217, z: 0.12261492}
   m_Center: {x: 2, y: 1.2274143, z: -0.00000014528632}
---- !u!95 &1630967851 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: bb389a09b6f70f94ea04bf09f602d763, type: 3}
-  m_PrefabInstance: {fileID: 2115136134}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1648053031
 PrefabInstance:
   m_ObjectHideFlags: 0

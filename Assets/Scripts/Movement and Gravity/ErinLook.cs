@@ -5,7 +5,7 @@ public class ErinLook : MonoBehaviour
 {
     [SerializeField]
     Transform character;
-    public float sensitivity = 2;
+    public float sensitivity = 12;
     public float smoothing = 1.5f;
     public Button resumeButton;
     public bool isPaused = false;
@@ -35,8 +35,8 @@ public class ErinLook : MonoBehaviour
             && character.tag == "ActiveCharacter")
         {
             // Get smooth velocity.
-            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X") * PlayerPrefs.GetFloat("sensitivity", 1), 
-                Input.GetAxisRaw("Mouse Y") * PlayerPrefs.GetFloat("sensitivity", 1));
+            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X") * PlayerPrefs.GetFloat("sensitivity", 0.25f), 
+                Input.GetAxisRaw("Mouse Y") * PlayerPrefs.GetFloat("sensitivity", 0.25f));
             Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
             frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
             float oldX = velocity.x;
