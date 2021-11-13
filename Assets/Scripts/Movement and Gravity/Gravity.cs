@@ -69,42 +69,42 @@ public class Gravity : MonoBehaviour
             {
                 UpdateGravity(Vector3.down);
                 direction = Vector3.down;
-                //Debug.Log("Down");
+                Debug.Log("Down");
             }
             // Up
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 UpdateGravity(Vector3.up);
                 direction = Vector3.up;
-                //Debug.Log("Up");
+                Debug.Log("Up");
             }
             // North
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 UpdateGravity(Vector3.forward);
                 direction = Vector3.forward;
-                //Debug.Log("North");
+                Debug.Log("North");
             }
             // East
             else if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 UpdateGravity(Vector3.right);
                 direction = Vector3.right;
-                //Debug.Log("East");
+                Debug.Log("East");
             }
             // South
             else if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 UpdateGravity(Vector3.back);
                 direction = Vector3.back;
-                //Debug.Log("South");
+                Debug.Log("South");
             }
             // West
             else if (Input.GetKeyDown(KeyCode.Alpha6))
             {
                 UpdateGravity(Vector3.left);
                 direction = Vector3.left;
-                //Debug.Log("West");
+                Debug.Log("West");
             }
             */
         }
@@ -119,8 +119,6 @@ public class Gravity : MonoBehaviour
             return;
         }
         gravitySound.Play();
-
-        Physics.gravity = NewDirection * strength;
 
         // keepAxes tracks what axes are actually relevant on the rotation given where gravity is pulling.
         // E.g. If gravity is pulling Down, the character's forward vector should not have a y value. 
