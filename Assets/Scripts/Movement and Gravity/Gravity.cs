@@ -9,9 +9,15 @@ public class Gravity : MonoBehaviour
     public Vector3 direction;
     public Vector3 normal;
     public bool isPaused;
+    public bool isGravitySwitch = false;
     public Transform character;
     public UIManager uiScript;
     public AudioSource gravitySound;
+    public GravityUI gravUI;
+    public MouseOverGrav mouseGravUp;
+    public MouseOverGrav mouseGravForward;
+    public MouseOverGrav mouseGravLeft;
+    public MouseOverGrav mouseGravRight;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +32,38 @@ public class Gravity : MonoBehaviour
     void Update()
     {
         isPaused = uiScript.isPaused;
-        if (!isPaused)
+        isGravitySwitch = gravUI.gravityChange;
+        if (!isPaused || isGravitySwitch)
         {
+            // Up
+            if (Input.GetMouseButtonUp(1) && mouseGravUp.upChange)
+            {
+                UpdateGravity(Vector3.up);
+                direction = Vector3.up;
+                Debug.Log("Up");
+            }
+            // North
+            else if (Input.GetMouseButtonUp(1) && mouseGravForward.forwardChange)
+            {
+                UpdateGravity(Vector3.forward);
+                direction = Vector3.forward;
+                Debug.Log("North");
+            }
+            // East
+            else if (Input.GetMouseButtonUp(1) && mouseGravRight.rightChange)
+            {
+                UpdateGravity(Vector3.right);
+                direction = Vector3.right;
+                Debug.Log("East");
+            }
+            // West
+            else if (Input.GetMouseButtonUp(1) && mouseGravLeft.leftChange)
+            {
+                UpdateGravity(Vector3.left);
+                direction = Vector3.left;
+                Debug.Log("West");
+            }
+            /*
             // Down (default gravity)
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -70,6 +106,7 @@ public class Gravity : MonoBehaviour
                 direction = Vector3.left;
                 Debug.Log("West");
             }
+            */
         }
     }
 
