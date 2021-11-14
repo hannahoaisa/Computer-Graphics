@@ -2375,11 +2375,7 @@ MonoBehaviour:
   isGameWon: 0
   erinMove: {fileID: 136673914}
   eagleMove: {fileID: 157770613}
-<<<<<<< HEAD
-  objective: {fileID: 0}
-=======
-  objective: {fileID: 510500005}
->>>>>>> e123511ca20ed4518c0336bf7037601cc9dac2e4
+
   resumeButton: {fileID: 461801767}
   nextButton: {fileID: 1662671942}
   restartButton: {fileID: 1269919549}
@@ -2881,14 +2877,7 @@ Transform:
   - {fileID: 1101222033}
   - {fileID: 594619294}
   - {fileID: 1616938187}
-<<<<<<< HEAD
-  - {fileID: 770438106}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-=======
-  m_Father: {fileID: 639506277}
-  m_RootOrder: 3
->>>>>>> e123511ca20ed4518c0336bf7037601cc9dac2e4
+
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257671407
 GameObject:
