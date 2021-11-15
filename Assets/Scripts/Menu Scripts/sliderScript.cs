@@ -29,6 +29,6 @@ public class sliderScript : MonoBehaviour
         soundScript.SetMusicLevel(Mathf.Log10(music.value) * 20);
         PlayerPrefs.SetFloat("musicVol", music.value);
         PlayerPrefs.SetFloat("sensitivity", sensitivity.value);
-        //effects.OnDeselect();
+        Debug.Log(PlayerPrefs.GetFloat("sensitivity"));
     }
 }

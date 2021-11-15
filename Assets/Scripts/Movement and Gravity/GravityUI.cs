@@ -9,6 +9,7 @@ public class GravityUI : MonoBehaviour
     public MouseOverGrav mouseGravUp;
     public MouseOverGrav mouseGravLeft;
     public MouseOverGrav mouseGravRight;
+    public MouseOverGrav mouseGravForward;
     public GameObject[] showOnGravity;
     public bool gravityChange = false;
     public void Update()
@@ -27,9 +28,9 @@ public class GravityUI : MonoBehaviour
             mouseGravLeft.image.color = mouseGravLeft.initColor;
             mouseGravRight.image.color = mouseGravRight.initColor;
             mouseGravUp.upChange = false;
-            mouseGravUp.leftChange = false;
-            mouseGravUp.rightChange = false;
-            mouseGravUp.forwardChange = false;
+            mouseGravLeft.leftChange = false;
+            mouseGravRight.rightChange = false;
+            mouseGravForward.forwardChange = false;
             HideGravityObj();
         }
     }

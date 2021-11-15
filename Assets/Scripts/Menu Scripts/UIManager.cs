@@ -17,14 +17,18 @@ public class UIManager : MonoBehaviour
     public EagleMove eagleMove;
     public GravityUI gravityUI;
     public Objective objective;
-    public Button resumeButton, nextButton, restartFromPause, restartFromDeath, quitButton, settings, returnButton;
+    public Button resumeButton, nextButton, restartFromPause, restartFromDeath, restartFromWin,
+        quitFromPause, quitFromDeath, quitFromWin, settings, returnButton;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(resumeHandle);
         restartFromPause.onClick.AddListener(restartHandle);
         restartFromDeath.onClick.AddListener(restartHandle);
-        quitButton.onClick.AddListener(quitHandle);
+        restartFromWin.onClick.AddListener(restartHandle);
+        quitFromPause.onClick.AddListener(quitHandle);
+        quitFromDeath.onClick.AddListener(quitHandle);
+        quitFromWin.onClick.AddListener(quitHandle);
         nextButton.onClick.AddListener(nextHandle);
         settings.onClick.AddListener(settingsHandle);
         returnButton.onClick.AddListener(returnHandle);
