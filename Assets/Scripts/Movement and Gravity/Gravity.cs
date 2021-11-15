@@ -34,7 +34,7 @@ public class Gravity : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Vector3 flattenedForward = getFlattenedForward();
         myForward = flattenedForward;
@@ -47,10 +47,9 @@ public class Gravity : MonoBehaviour
 
             // CHANGING GRAVITY WITH UI
             // Flip
-            if (Input.GetMouseButtonUp(1) && mouseGravUp.upChange)
-            {
-                UpdateGravity(normal);
+            if (Input.GetMouseButtonUp(1) && mouseGravUp.upChange){
                 Debug.Log("Flip");
+                UpdateGravity(normal);
             }
             // Forward
             else if (Input.GetMouseButtonUp(1) && mouseGravForward.forwardChange)
