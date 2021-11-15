@@ -12,7 +12,7 @@ public class GravityUI : MonoBehaviour
     public MouseOverGrav mouseGravForward;
     public GameObject[] showOnGravity;
     public bool gravityChange = false;
-    public void Update()
+    public void LateUpdate()
     {
         if (Input.GetMouseButtonDown(1))
         {
