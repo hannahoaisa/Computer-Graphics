@@ -44,7 +44,6 @@ public class Gravity : MonoBehaviour
         {
 
             _erinForward = findErinForward();
-            Debug.Log("MouseUp: " + Input.GetMouseButtonUp(1) + "; ChangeUp: " + mouseGravUp.upChange);
 
             // CHANGING GRAVITY WITH UI
             // Flip

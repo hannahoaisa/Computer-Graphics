@@ -4,7 +4,6 @@ using UnityEngine;
 public class EagleMove : MonoBehaviour
 {
     public float speed = 5;
-    public float flySpeed = 5;
     public Animator eagleAnimator;
 
     public bool isWalking;
@@ -39,21 +38,11 @@ public class EagleMove : MonoBehaviour
         }
 
         // Get targetVelocity from input.
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Fly") * flySpeed, Input.GetAxis("Vertical") * speed);
-
-        if (targetVelocity.x > 0.01
-            || targetVelocity.y > 0.01
-            || targetVelocity.z > 0.01)
-        {
-            //eagleAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            //eagleAnimator.SetBool("isWalking", false);
-        }
+        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal") * speed * 50, Input.GetAxis("Fly") * speed * 50, Input.GetAxis("Vertical") * speed * 50);
 
         // Apply movement.
-        transform.Translate(targetVelocity.x * Time.deltaTime, targetVelocity.y * Time.deltaTime, targetVelocity.z * Time.deltaTime);
+        Vector3 forceVector = new Vector3(targetVelocity.x * Time.deltaTime, targetVelocity.y * Time.deltaTime, targetVelocity.z * Time.deltaTime);
+        rigidbody.velocity = transform.rotation * forceVector;
 
     }
 }

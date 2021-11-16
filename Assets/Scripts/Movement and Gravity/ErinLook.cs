@@ -3,18 +3,19 @@ using UnityEngine.UI;
 
 public class ErinLook : MonoBehaviour
 {
-    [SerializeField]
-    Transform character;
+    public Transform character;
     public float sensitivity = 12;
     public float smoothing = 1.5f;
     public Button resumeButton;
     public bool isPaused = false;
 
-    public Vector2 velocity;
-    public Vector2 frameVelocity;
-
     public Gravity gravity;
     public UIManager uiScript;
+
+    [SerializeField]
+    private Vector2 velocity;
+    [SerializeField]
+    private Vector2 frameVelocity;
 
     void Reset()
     {
