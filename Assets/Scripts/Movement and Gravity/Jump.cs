@@ -26,12 +26,12 @@ public class Jump : MonoBehaviour
     void LateUpdate()
     {
         // Jump when the Jump button is pressed and we are on the ground.
-        if (Input.GetButtonDown("Jump") 
+        if (Input.GetButtonDown("Jump")
             && (!groundCheck || groundCheck.isGrounded)
             && gameObject.tag == "ActiveCharacter")
         {
             rigidbody.AddForce(gravity.normal * 100 * jumpStrength);
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
             Jumped?.Invoke();
         }
     }

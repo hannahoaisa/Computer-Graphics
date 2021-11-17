@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class EagleLook : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EagleLook : MonoBehaviour
     Transform character;
     public float sensitivity = 12;
     public float smoothing = 1.5f;
+    public float pickupRange = 3f;
     public Button resumeButton;
     public bool isPaused = false;
 
@@ -24,6 +26,12 @@ public class EagleLook : MonoBehaviour
 
     void LateUpdate()
     {
+        if (character.tag == "ActiveCharacter"
+            && Input.GetKeyUp(KeyCode.E))
+        {
+            Interact();
+        }
+
         isPaused = uiScript.isPaused;
         if (!isPaused
             && character.tag == "ActiveCharacter")
@@ -41,6 +49,48 @@ public class EagleLook : MonoBehaviour
             // Rotate camera up-down and controller left-right from velocity.
             transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);       // Works perfectly (I think)
             character.RotateAround(character.position, character.up, velocity.x - oldX);
+        }
+    }
+
+    void Interact()
+    {
+        LayerMask interactables = (1 << 7);
+
+        RaycastHit hit;
+
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, interactables))
+        {
+            //Debug.Log("Hit");
+            StopCoroutine(TriggerAHit(hit.transform.gameObject));
+            StartCoroutine(TriggerAHit(hit.transform.gameObject));
+        }
+
+        // If Eagle's camera has child objects then it has them picked up. Automatically interect with them.
+        foreach (Transform childObject in GameObject.Find("EagleCamera").transform)
+        {
+            Debug.Log("Eagle child");
+            if (hit.transform != childObject)
+            {
+                StopCoroutine(TriggerAHit(childObject.gameObject));
+                StartCoroutine(TriggerAHit(childObject.gameObject));
+            }
+        }
+    }
+
+    IEnumerator TriggerAHit(GameObject hitObject)
+    {
+        string prevTag = hitObject.tag;
+        hitObject.tag = "EagleHit";
+
+        // Give 10 milliseconds for the object to catch the interaction
+        yield return new WaitForSeconds(.01f);
+
+        // If 10 ms have passed and the object still has the tag, then it likely doesn't have a script to revert it itself
+        if (hitObject.tag == "EagleHit")
+        {
+            hitObject.tag = prevTag;
+            //Debug.Log("Reverted");
         }
     }
 }

@@ -48,26 +48,26 @@ public class Gravity : MonoBehaviour
             // CHANGING GRAVITY WITH UI
             // Flip
             if (Input.GetMouseButtonUp(1) && mouseGravUp.upChange){
-                Debug.Log("Flip");
                 UpdateGravity(normal);
+                //Debug.Log("Flip");
             }
             // Forward
             else if (Input.GetMouseButtonUp(1) && mouseGravForward.forwardChange)
             {
                 UpdateGravity(_erinForward);
-                Debug.Log("Forward");
+                //Debug.Log("Forward");
             }
             // Right
             else if (Input.GetMouseButtonUp(1) && mouseGravRight.rightChange)
             {
                 UpdateGravity(Vector3.Cross(normal, _erinForward));
-                Debug.Log("Right");
+                //Debug.Log("Right");
             }
             // Left
             else if (Input.GetMouseButtonUp(1) && mouseGravLeft.leftChange)
             {
                 UpdateGravity(Vector3.Cross(_erinForward, normal));
-                Debug.Log("Left");
+                //Debug.Log("Left");
             }
 
             // CHANGING GRAVITY WITH 1, 2, 3, 4, 5, 6

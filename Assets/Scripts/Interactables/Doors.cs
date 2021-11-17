@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-    public ButtonTrigger buttonTrigger;
-    public GameObject topDoor;
-    public GameObject bottomDoor;
+    public StandupButton button;
     public AudioSource openDoorSound;
     public AudioSource closeDoorSound;
     public bool isButtonActivated;
     public bool areDoorsOpen;
 
-    private Animator _topDoorAnimator;
-    private Animator _bottomDoorAnimator;
+    private Animator _doorOneAnimator;
+    private Animator _doorTwoAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        _topDoorAnimator = topDoor.GetComponent<Animator>();
-        _bottomDoorAnimator = bottomDoor.GetComponent<Animator>();
+        _doorOneAnimator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        _doorTwoAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
         areDoorsOpen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isButtonActivated = buttonTrigger.isButtonActivated;
+        isButtonActivated = button.isButtonActivated;
         if (!areDoorsOpen
             && isButtonActivated)
         {
@@ -45,8 +43,8 @@ public class Doors : MonoBehaviour
     {
         openDoorSound.Play();
         yield return new WaitForSeconds(0.5f);
-        _topDoorAnimator.SetTrigger("Button Press");
-        _bottomDoorAnimator.SetTrigger("Button Press");
+        _doorOneAnimator.SetTrigger("Button Press");
+        _doorTwoAnimator.SetTrigger("Button Press");
         //topDoor.SetActive(false);
         //bottomDoor.SetActive(false);
     }
@@ -55,8 +53,8 @@ public class Doors : MonoBehaviour
     {
         closeDoorSound.Play();
         yield return new WaitForSeconds(0.5f);
-        _topDoorAnimator.SetTrigger("Timer Done");
-        _bottomDoorAnimator.SetTrigger("Timer Done");
+        _doorOneAnimator.SetTrigger("Timer Done");
+        _doorTwoAnimator.SetTrigger("Timer Done");
         //topDoor.SetActive(true);
         //bottomDoor.SetActive(true);
     }
