@@ -153,6 +153,7 @@ public class UIManager : MonoBehaviour
         isPaused = false;
         isDead = false;
         isGameWon = false;
+        Physics.gravity = Vector3.down;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void quitHandle()

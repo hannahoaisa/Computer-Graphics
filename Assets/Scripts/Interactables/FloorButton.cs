@@ -17,7 +17,7 @@ public class FloorButton : Activator
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered");
+        //Debug.Log("Entered");
         // If an object collided with the button that is also allowed to press it
         if (((other.GetComponent("PickupObject") as PickupObject) != null
             && (other.GetComponent("PickupObject") as PickupObject).canPressFloorButtons)
@@ -27,13 +27,13 @@ public class FloorButton : Activator
             _validObjectsOnButton.Add(other.gameObject);
             isButtonActivated = true;
             _buttonHeadAnimator.SetBool("isButtonActivated", true);
-            Debug.Log("Object placed on button");
+            //Debug.Log("Object placed on button");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Left");
+        //Debug.Log("Left");
         if (((other.GetComponent("PickupObject") as PickupObject) != null
             && (other.GetComponent("PickupObject") as PickupObject).canPressFloorButtons)
             || (other.transform == GameObject.FindGameObjectWithTag("Erin").transform.parent)
@@ -46,7 +46,7 @@ public class FloorButton : Activator
             {
                 isButtonActivated = false;
                 _buttonHeadAnimator.SetBool("isButtonActivated", false);
-                Debug.Log("Button now off");
+                //Debug.Log("Button now off");
             }
             //Debug.Log("Object taken off button");
         }
