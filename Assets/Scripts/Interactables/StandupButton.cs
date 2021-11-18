@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandupButton : MonoBehaviour
+public class StandupButton : Activator
 {
     public bool canErinInteract = true;
     public bool canEagleInteract = true;
     public float timerLength = 2.0f;
     public AudioSource timerStart;
     public AudioSource timerDone;
-    public bool isButtonActivated;                                // This value will be read by other scripts
 
     private Material _consoleScreen;
     private bool _newInteraction;

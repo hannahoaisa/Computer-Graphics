@@ -61,7 +61,8 @@ public class ErinLook : MonoBehaviour
 
     void Interact()
     {
-        LayerMask interactables = (1 << 7);
+        // 7 is "Interactables", 8 is "PickedupObject"
+        LayerMask interactables = (1 << 7) | (1 << 8);
 
         RaycastHit hit;
 

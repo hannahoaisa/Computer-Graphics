@@ -4,6 +4,7 @@ public class PickupObject : MonoBehaviour
 {
     public bool canErinInteract = true;
     public bool canEagleInteract = false;
+    public bool canPressFloorButtons = false;
     public float carryRange = 3f;
 
     private bool _newInteraction;
@@ -27,8 +28,12 @@ public class PickupObject : MonoBehaviour
     {
         CheckInteractions();
         HandlePickups();
+
+        // Layer 8 is the "PickedupObject" layer
+        Physics.IgnoreLayerCollision(6, 8);
     }
 
+    // Generic function to check for interactions. Some version of this is in every interactable object's script.
     private void CheckInteractions()
     {
         // If Erin interacted with it
@@ -68,7 +73,7 @@ public class PickupObject : MonoBehaviour
             _pickedUpBy = "Erin";
             gameObject.transform.parent = GameObject.Find("ErinCamera").gameObject.transform;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            Physics.IgnoreLayerCollision(6, 7);
+            gameObject.layer = 8;
         }
         // Let Eagle pickup object;
         else if (_newInteraction
@@ -80,7 +85,7 @@ public class PickupObject : MonoBehaviour
             _pickedUpBy = "Eagle";
             gameObject.transform.parent = GameObject.Find("EagleCamera").gameObject.transform;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            Physics.IgnoreLayerCollision(6, 7);
+            gameObject.layer = 8;
         }
         // Let go of object if they click E again
         else if (_pickedUpBy != "No one"
@@ -113,6 +118,6 @@ public class PickupObject : MonoBehaviour
         _pickedUpBy = "No one";
         gameObject.transform.parent = _interactablesObject.transform;
         gameObject.GetComponent<Rigidbody>().useGravity = true;
-        Physics.IgnoreLayerCollision(6, 7, false);
+        gameObject.layer = 7;
     }
 }

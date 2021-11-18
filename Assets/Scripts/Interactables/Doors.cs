@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-    public StandupButton button;
+    public Activator button;
     public AudioSource openDoorSound;
     public AudioSource closeDoorSound;
     public bool isButtonActivated;
