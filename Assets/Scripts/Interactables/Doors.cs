@@ -49,8 +49,8 @@ public class Doors : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _doorOneAnimator.SetTrigger("Button Press");
         _doorTwoAnimator.SetTrigger("Button Press");
-        _doorOne.SetActive(false);
-        _doorTwo.SetActive(false);
+        //_doorOne.SetActive(false);
+        //_doorTwo.SetActive(false);
     }
 
     IEnumerator closeDoors()
@@ -59,7 +59,7 @@ public class Doors : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _doorOneAnimator.SetTrigger("Timer Done");
         _doorTwoAnimator.SetTrigger("Timer Done");
-        _doorOne.SetActive(true);
-        _doorTwo.SetActive(true);
+        //_doorOne.SetActive(true);
+        //_doorTwo.SetActive(true);
     }
 }
