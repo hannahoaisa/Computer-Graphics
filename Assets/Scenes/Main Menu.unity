@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17327,7 +17327,7 @@ MonoBehaviour:
   effectsSlide: {fileID: 2082407909}
   musicSlide: {fileID: 1532095182}
   sensitiveSlide: {fileID: 1201152155}
-  buttonSound: {fileID: 0}
+  buttonSound: {fileID: 1987694377}
 --- !u!4 &1793359716
 Transform:
   m_ObjectHideFlags: 0
@@ -19945,7 +19945,7 @@ MonoBehaviour:
   music: {fileID: 1532095184}
   sensitivity: {fileID: 1201152157}
   soundScript: {fileID: 2077412221}
-  effectsSound: {fileID: 0}
+  effectsSound: {fileID: 324246414}
 --- !u!4 &2077412220
 Transform:
   m_ObjectHideFlags: 0
