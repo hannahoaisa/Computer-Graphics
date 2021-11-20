@@ -46,6 +46,10 @@ public class UIManager : MonoBehaviour
         {
             Pause();
         }
+        else if (isPaused && !isDead && !isGameWon && Input.GetKeyDown("escape"))
+        {
+            Resume();
+        }
     }
     public void Pause()
     {
@@ -71,8 +75,8 @@ public class UIManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         hidePaused();
         hideDead();
         hideWin();
