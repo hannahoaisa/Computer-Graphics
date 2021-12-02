@@ -49,6 +49,8 @@ public class Doors : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _doorOneAnimator.SetTrigger("Button Press");
         _doorTwoAnimator.SetTrigger("Button Press");
+        _doorOneAnimator.SetBool("isActivated", true);
+        _doorTwoAnimator.SetBool("isActivated", true);
         //_doorOne.SetActive(false);
         //_doorTwo.SetActive(false);
     }
@@ -59,6 +61,8 @@ public class Doors : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _doorOneAnimator.SetTrigger("Timer Done");
         _doorTwoAnimator.SetTrigger("Timer Done");
+        _doorOneAnimator.SetBool("isActivated", false);
+        _doorTwoAnimator.SetBool("isActivated", false);
         //_doorOne.SetActive(true);
         //_doorTwo.SetActive(true);
     }
