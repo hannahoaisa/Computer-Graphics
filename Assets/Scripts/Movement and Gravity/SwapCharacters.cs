@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwapCharacters : MonoBehaviour
 {
+    public bool isEagleActive = true;
     public GameObject Erin;
     public GameObject Eagle;
     public GameObject ErinMesh;
@@ -31,7 +32,11 @@ public class SwapCharacters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SwitchCharacters();
+        // Only allow switching if the eagle is in the level
+        if (isEagleActive)
+        {
+            SwitchCharacters();
+        }
     }
 
     void SwitchCharacters()

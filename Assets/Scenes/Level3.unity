@@ -7411,7 +7411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 360274646}
   m_Layer: 0
-  m_Name: EndDoor (1)
+  m_Name: FacadeDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27539,6 +27539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a9fcb476a9d14f8890088a958cc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEagleActive: 1
   Erin: {fileID: 808322049}
   Eagle: {fileID: 688566443}
   ErinMesh: {fileID: 808322048}
@@ -38530,9 +38531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '4
-
-'
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
