@@ -35,7 +35,7 @@ public class MouseOverGrav : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             default:
                 break;
         }
-        image.color = Color.green;
+        image.color = new Color(0f, 108f, 255f, 0.75f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
