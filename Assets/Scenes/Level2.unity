@@ -4770,6 +4770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonActivated: 0
+  isStandup: 1
   canErinInteract: 1
   canEagleInteract: 1
   timerLength: 2
@@ -13161,7 +13162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb75861f64c86d4a82f87c4b501721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 440149638}
+  activatorsAND:
+  - {fileID: 440149638}
+  activatorsOR: []
   openDoorSound: {fileID: 27769199}
   closeDoorSound: {fileID: 1338539947}
   isButtonActivated: 0

@@ -8597,7 +8597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb75861f64c86d4a82f87c4b501721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1943622520}
+  activatorsAND:
+  - {fileID: 1943622520}
+  activatorsOR: []
   openDoorSound: {fileID: 1135601165}
   closeDoorSound: {fileID: 592903805}
   isButtonActivated: 0

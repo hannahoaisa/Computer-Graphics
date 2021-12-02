@@ -70,7 +70,7 @@ public class EagleLook : MonoBehaviour
         // If Eagle's camera has child objects then it has them picked up. Automatically interect with them.
         foreach (Transform childObject in GameObject.Find("EagleCamera").transform)
         {
-            Debug.Log("Eagle child");
+            //Debug.Log("Eagle child");
             if (hit.transform != childObject)
             {
                 StopCoroutine(TriggerAHit(childObject.gameObject));
