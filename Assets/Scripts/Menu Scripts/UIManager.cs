@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public GameObject[] pauseObjects;
+    public GameObject[] hideOnPause;
     public GameObject[] showOnDeath;
     public GameObject[] showOnWin;
     public GameObject[] showOnSettings;
-    public GameObject mainMenu;
     public bool isPaused = false;
     public bool isDead = false;
     public bool isGameWon;
@@ -35,7 +35,6 @@ public class UIManager : MonoBehaviour
         returnButton.onClick.AddListener(returnHandle);
         Time.timeScale = 1;
         hidePaused();
-        mainMenu.SetActive(true);
     }
     void Update()
     {
@@ -90,6 +89,10 @@ public class UIManager : MonoBehaviour
         {
             g.SetActive(true);
         }
+        foreach (GameObject g in hideOnPause)
+        {
+            //g.SetActive(false);
+        }
     }
 
     //hides objects with ShowOnPause tag
@@ -98,6 +101,10 @@ public class UIManager : MonoBehaviour
         foreach (GameObject g in pauseObjects)
         {
             g.SetActive(false);
+        }
+        foreach (GameObject g in hideOnPause)
+        {
+            g.SetActive(true);
         }
     }
 
@@ -135,7 +142,6 @@ public class UIManager : MonoBehaviour
 
     public void showSettings()
     {
-        mainMenu.SetActive(false);
         foreach (GameObject g in showOnSettings)
         {
             g.SetActive(true);
@@ -144,7 +150,6 @@ public class UIManager : MonoBehaviour
 
     public void hideSettings()
     {
-        mainMenu.SetActive(true);
         foreach (GameObject g in showOnSettings)
         {
             g.SetActive(false);
