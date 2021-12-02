@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-    public Activator button;
+    public Activator[] activatorsAND;
+    public Activator[] activatorsOR;
     public AudioSource openDoorSound;
     public AudioSource closeDoorSound;
     public bool isButtonActivated;
@@ -28,7 +29,31 @@ public class Doors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isButtonActivated = button.isButtonActivated;
+        // The following inputs must ALL be on for door to open
+        foreach (Activator input in activatorsAND)
+        {
+            isButtonActivated = true;
+
+            // Sets to false as soon as it finds one inactive input
+            if (!input.isButtonActivated)
+            {
+                isButtonActivated = false;
+                break;
+            }
+        }
+
+        // Only ONE of the following inputs must be on for the door to open
+        foreach (Activator input in activatorsOR)
+        {
+            // Sets to true as soon as it finds one active input
+            if (input.isButtonActivated)
+            {
+                isButtonActivated = true;
+                break;
+            }
+        }
+
+        // Open and close doors
         if (!areDoorsOpen
             && isButtonActivated)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StandupButton : Activator
 {
+    public bool isStandup = true;
     public bool canErinInteract = true;
     public bool canEagleInteract = true;
     public float timerLength = 2.0f;
@@ -16,7 +17,14 @@ public class StandupButton : Activator
     // Start is called before the first frame update
     void Start()
     {
-        _consoleScreen = gameObject.GetComponent<Renderer>().materials[1];
+        if (isStandup)
+        {
+            _consoleScreen = gameObject.GetComponent<Renderer>().materials[1];
+        }
+        else
+        {
+            _consoleScreen = gameObject.GetComponent<Renderer>().materials[0];
+        }
         _consoleScreen.SetColor("_Color", Color.black);
         isButtonActivated = false;
     }
