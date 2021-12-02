@@ -32147,6 +32147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseObjects:
   - {fileID: 1716861968}
+  hideOnPause:
+  - {fileID: 197490534}
   showOnDeath:
   - {fileID: 1884179047}
   showOnWin:
