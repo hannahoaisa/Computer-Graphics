@@ -667,7 +667,7 @@ PlayerSettings:
   cloudServicesEnabled:
     Analytics: 0
     Build: 0
-    Collab: 1
+    Collab: 0
     Game Performance: 0
     Purchasing: 0
     UDP: 0
@@ -686,11 +686,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 37386ba1-fb35-469a-904d-0b089404c43f
+  cloudProjectId: fc0d32da-f192-44e5-b887-08a6ae9f99a3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Bottom's Up
-  organizationId: jefferyg777
+  organizationId: merfiron
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0
