@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] showOnDeath;
     public GameObject[] showOnWin;
     public GameObject[] showOnSettings;
+    public GameObject mainMenu;
     public bool isPaused = false;
     public bool isDead = false;
     public bool isGameWon;
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
         returnButton.onClick.AddListener(returnHandle);
         Time.timeScale = 1;
         hidePaused();
+        mainMenu.SetActive(true);
     }
     void Update()
     {
@@ -133,6 +135,7 @@ public class UIManager : MonoBehaviour
 
     public void showSettings()
     {
+        mainMenu.SetActive(false);
         foreach (GameObject g in showOnSettings)
         {
             g.SetActive(true);
@@ -141,6 +144,7 @@ public class UIManager : MonoBehaviour
 
     public void hideSettings()
     {
+        mainMenu.SetActive(true);
         foreach (GameObject g in showOnSettings)
         {
             g.SetActive(false);

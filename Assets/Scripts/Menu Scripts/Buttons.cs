@@ -6,7 +6,7 @@ public class Buttons : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
     public Button playButton, loadButton, controlsButton, settingsButton, quitButton;
-    public GameObject mainMenu, controlsMenu, settingsMenu, effectsSlide, musicSlide, sensitiveSlide;
+    public GameObject mainMenu, controlsMenu, settingsMenu, effectsSlide, musicSlide, sensitiveSlide, settingsBack, controlsBack;
     public AudioSource buttonSound;
 
     void Start()
@@ -30,6 +30,7 @@ public class Buttons : MonoBehaviour
     public void controlsHandle()
     {
         mainMenu.SetActive(false);
+        controlsBack.SetActive(true);
         controlsMenu.SetActive(true);
     }
 
@@ -40,6 +41,8 @@ public class Buttons : MonoBehaviour
         effectsSlide.SetActive(true);
         musicSlide.SetActive(true);
         sensitiveSlide.SetActive(true);
+        settingsBack.SetActive(true);
+
     }
     public void quitHandle()
     {
@@ -54,5 +57,7 @@ public class Buttons : MonoBehaviour
         musicSlide.SetActive(false);
         sensitiveSlide.SetActive(false);
         mainMenu.SetActive(true);
+        settingsBack.SetActive(false);
+        controlsBack.SetActive(false);
     }
 }
