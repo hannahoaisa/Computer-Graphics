@@ -168,6 +168,7 @@ public class UIManager : MonoBehaviour
 
     public void nextHandle()
     {
+        Physics.gravity = Vector3.down * erinMove.gravity.strength;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void settingsHandle()
