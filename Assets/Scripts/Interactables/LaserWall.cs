@@ -7,11 +7,14 @@ public class LaserWall : MonoBehaviour
     public Activator[] activatorsAND;
     public Activator[] activatorsOR;
     public bool areInputsActivated = false;
+    public bool lasersStartOn = true;
 
+    private bool _areLasersOn;
     private Animator _laserAnimator;
 
     void Start()
     {
+        _areLasersOn = (lasersStartOn) ? true : false;
         _laserAnimator = gameObject.GetComponent<Animator>();
     }
 
@@ -49,13 +52,39 @@ public class LaserWall : MonoBehaviour
         }
 
         // Turns lasers on and off
-        if (areInputsActivated)
+        if (areInputsActivated
+            && ((lasersStartOn
+            && _areLasersOn)
+            || (!lasersStartOn
+            && !_areLasersOn)))
         {
-            StartCoroutine(turnOn());
+            if (_areLasersOn)
+            {
+                _areLasersOn = false;
+                StartCoroutine(turnOff());
+            }
+            if (!_areLasersOn)
+            {
+                _areLasersOn = true;
+                StartCoroutine(turnOn());
+            }
         }
-        else
+        else if (!areInputsActivated
+             && ((lasersStartOn
+             && !_areLasersOn)
+             || (!lasersStartOn
+             && _areLasersOn)))
         {
-            StartCoroutine(turnOff());
+            if (_areLasersOn)
+            {
+                _areLasersOn = false;
+                StartCoroutine(turnOff());
+            }
+            if (!_areLasersOn)
+            {
+                _areLasersOn = true;
+                StartCoroutine(turnOn());
+            }
         }
 
         IEnumerator turnOn()
