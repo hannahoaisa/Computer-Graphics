@@ -14500,7 +14500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canErinInteract: 1
   canEagleInteract: 0
-  canPressFloorButtons: 1
+  canPressFloorButtons: 0
   carryRange: 3
 --- !u!65 &1420610058
 BoxCollider:
@@ -20108,7 +20108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canErinInteract: 1
   canEagleInteract: 0
-  canPressFloorButtons: 1
+  canPressFloorButtons: 0
   carryRange: 3
 --- !u!65 &2055810147
 BoxCollider:
