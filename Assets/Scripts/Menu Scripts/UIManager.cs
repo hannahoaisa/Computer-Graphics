@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     public GameObject[] showOnDeath;
     public GameObject[] showOnWin;
     public GameObject[] showOnSettings;
+    public GameObject[] showOnSave;
+    public saveLoad SaveLoad;
+    public AudioSource theMusic;
     public bool isPaused = false;
     public bool isDead = false;
     public bool isGameWon;
@@ -19,7 +22,8 @@ public class UIManager : MonoBehaviour
     public GravityUI gravityUI;
     public Objective objective;
     public Button resumeButton, nextButton, restartFromPause, restartFromDeath, restartFromWin,
-        quitFromPause, quitFromDeath, quitFromWin, settings, returnButton;
+        quitFromPause, quitFromDeath, quitFromWin, settings, returnFromSettings, returnFromSave,
+        saveButton, save1, save2, save3;
 
     private void Start()
     {
@@ -32,7 +36,12 @@ public class UIManager : MonoBehaviour
         quitFromWin.onClick.AddListener(quitHandle);
         nextButton.onClick.AddListener(nextHandle);
         settings.onClick.AddListener(settingsHandle);
-        returnButton.onClick.AddListener(returnHandle);
+        returnFromSettings.onClick.AddListener(returnHandle);
+        returnFromSave.onClick.AddListener(returnHandle);
+        saveButton.onClick.AddListener(saveHandle);
+        save1.onClick.AddListener(slot1Handle);
+        save2.onClick.AddListener(slot2Handle);
+        save3.onClick.AddListener(slot3Handle);
         Time.timeScale = 1;
         hidePaused();
     }
@@ -156,6 +165,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void showSave()
+    {
+        foreach (GameObject g in showOnSave)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    public void hideSave()
+    {
+        foreach (GameObject g in showOnSave)
+        {
+            g.SetActive(false);
+        }
+    }
+
     public void resumeHandle()
     {
         Resume();
@@ -171,8 +196,8 @@ public class UIManager : MonoBehaviour
     }
     public void quitHandle()
     {
-        Application.Quit();
-        Debug.Log("Game quit.");
+        Destroy(GameObject.Find("Music"));
+        SceneManager.LoadScene(0);
     }
 
     public void nextHandle()
@@ -186,10 +211,29 @@ public class UIManager : MonoBehaviour
         hidePaused();
     }
 
+    public void saveHandle()
+    {
+        showSave();
+        hidePaused();
+    }
+
     public void returnHandle()
     {
         hideSettings();
+        hideSave();
         showPaused();
+    }
+    public void slot1Handle()
+    {
+        SaveLoad.saveGame("1");
+    }
+    public void slot2Handle()
+    {
+        SaveLoad.saveGame("2");
+    }
+    public void slot3Handle()
+    {
+        SaveLoad.saveGame("3");
     }
 
 }
