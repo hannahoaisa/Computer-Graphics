@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     public EagleMove eagleMove;
     public GravityUI gravityUI;
     public Objective objective;
-    public Button resumeButton, nextButton, restartFromPause, restartFromDeath, restartFromWin,
+    public Button resumeButton, restartFromPause, restartFromDeath, restartFromWin,
         quitFromPause, quitFromDeath, quitFromWin, settings, returnFromSettings, returnFromSave,
         saveButton, save1, save2, save3;
 
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         quitFromPause.onClick.AddListener(quitHandle);
         quitFromDeath.onClick.AddListener(quitHandle);
         quitFromWin.onClick.AddListener(quitHandle);
-        nextButton.onClick.AddListener(nextHandle);
+        //nextButton.onClick.AddListener(nextHandle);
         settings.onClick.AddListener(settingsHandle);
         returnFromSettings.onClick.AddListener(returnHandle);
         returnFromSave.onClick.AddListener(returnHandle);

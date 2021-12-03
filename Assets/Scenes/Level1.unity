@@ -10958,6 +10958,7 @@ MonoBehaviour:
   showOnSave:
   - {fileID: 1631527218}
   SaveLoad: {fileID: 750251576}
+  theMusic: {fileID: 0}
   isPaused: 0
   isDead: 0
   isGameWon: 0
@@ -10966,7 +10967,6 @@ MonoBehaviour:
   gravityUI: {fileID: 1702892164}
   objective: {fileID: 1216011063}
   resumeButton: {fileID: 1069551928}
-  nextButton: {fileID: 1257107204}
   restartFromPause: {fileID: 751527174}
   restartFromDeath: {fileID: 3038522}
   restartFromWin: {fileID: 544884492}
@@ -12793,7 +12793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1257107205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1060803509}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: nextHandle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1257107205
 MonoBehaviour:
   m_ObjectHideFlags: 0
