@@ -40453,7 +40453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseObjects:
-  - {fileID: 0}
+  - {fileID: 57786688}
   hideOnPause:
   - {fileID: 1768366793}
   showOnDeath:
@@ -40468,6 +40468,7 @@ MonoBehaviour:
   - {fileID: 338568287}
   showOnSave: []
   SaveLoad: {fileID: 281010932}
+  theMusic: {fileID: 0}
   isPaused: 0
   isDead: 0
   isGameWon: 0
