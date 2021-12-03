@@ -8,7 +8,7 @@ public class Doors : MonoBehaviour
     public Activator[] activatorsOR;
     public AudioSource openDoorSound;
     public AudioSource closeDoorSound;
-    public bool isButtonActivated;
+    public bool areInputsActive;
     public bool areDoorsOpen;
 
     private GameObject _doorOne;
@@ -32,36 +32,42 @@ public class Doors : MonoBehaviour
         // The following inputs must ALL be on for door to open
         foreach (Activator input in activatorsAND)
         {
-            isButtonActivated = true;
+            areInputsActive = true;
 
             // Sets to false as soon as it finds one inactive input
             if (!input.isButtonActivated)
             {
-                isButtonActivated = false;
+                areInputsActive = false;
                 break;
             }
         }
 
-        // Only ONE of the following inputs must be on for the door to open
-        foreach (Activator input in activatorsOR)
+        // Only continue to check inputs if it's not already activated
+        if (!areInputsActive)
         {
-            // Sets to true as soon as it finds one active input
-            if (input.isButtonActivated)
+            // Only ONE of the following inputs must be on for the door to open
+            foreach (Activator input in activatorsOR)
             {
-                isButtonActivated = true;
-                break;
+                areInputsActive = false;
+
+                // Sets to true as soon as it finds one active input
+                if (input.isButtonActivated)
+                {
+                    areInputsActive = true;
+                    break;
+                }
             }
         }
 
         // Open and close doors
         if (!areDoorsOpen
-            && isButtonActivated)
+            && areInputsActive)
         {
             areDoorsOpen = true;
             StartCoroutine(openDoors());
         }
         else if (areDoorsOpen
-            && !isButtonActivated)
+            && !areInputsActive)
         {
             areDoorsOpen = false;
             StartCoroutine(closeDoors());
