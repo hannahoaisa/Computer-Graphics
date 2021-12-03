@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
-    public Button playButton, loadButton, controlsButton, settingsButton, quitButton;
-    public GameObject mainMenu, controlsMenu, settingsMenu, effectsSlide, musicSlide, sensitiveSlide, settingsBack, controlsBack;
+    public Button playButton, loadButton, controlsButton, settingsButton, quitButton, slot1, slot2, slot3;
+    public GameObject mainMenu, controlsMenu, settingsMenu, effectsSlide, musicSlide, sensitiveSlide, settingsBack, controlsBack,
+        loadMenu;
     public AudioSource buttonSound;
+    public saveLoad SaveLoad;
 
     void Start()
     {
         playButton.onClick.AddListener(playHandle);
+        loadButton.onClick.AddListener(loadHandle);
         settingsButton.onClick.AddListener(settingsHandle);
         controlsButton.onClick.AddListener(controlsHandle);
         quitButton.onClick.AddListener(quitHandle);
+        slot1.onClick.AddListener(slot1Handle);
+        slot2.onClick.AddListener(slot2Handle);
+        slot3.onClick.AddListener(slot3Handle);
     }
 
     public void playHandle()
@@ -24,7 +30,8 @@ public class Buttons : MonoBehaviour
 
     public void loadHandle()
     {
-        
+        mainMenu.SetActive(false);
+        loadMenu.SetActive(true);
     }
 
     public void controlsHandle()
@@ -59,5 +66,42 @@ public class Buttons : MonoBehaviour
         mainMenu.SetActive(true);
         settingsBack.SetActive(false);
         controlsBack.SetActive(false);
+    }
+
+    public void slot1Handle()
+    {
+        int scene = PlayerPrefs.GetInt("1", -1);
+        if(scene != -1)
+        {
+            SaveLoad.loadGame("1");
+        }
+        else
+        {
+            SaveLoad.loadGame("0");
+        }
+    }
+    public void slot2Handle()
+    {
+        int scene = PlayerPrefs.GetInt("2", -1);
+        if (scene != -1)
+        {
+            SaveLoad.loadGame("2");
+        }
+        else
+        {
+            SaveLoad.loadGame("0");
+        }
+    }
+    public void slot3Handle()
+    {
+        int scene = PlayerPrefs.GetInt("3", -1);
+        if (scene != -1)
+        {
+            SaveLoad.loadGame("3");
+        }
+        else
+        {
+            SaveLoad.loadGame("0");
+        }
     }
 }
