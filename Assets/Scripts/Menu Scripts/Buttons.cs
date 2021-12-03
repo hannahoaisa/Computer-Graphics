@@ -25,6 +25,7 @@ public class Buttons : MonoBehaviour
 
     public void playHandle()
     {
+        Physics.gravity = Vector3.down * 9.8f;
         SceneManager.LoadScene(1);
     }
 

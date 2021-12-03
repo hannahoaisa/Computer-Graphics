@@ -53,14 +53,10 @@ public class EagleLook : MonoBehaviour
     }
 
     void Interact()
-    {
-        // 7 is "Interactables", 8 is "PickedupObject"
-        LayerMask interactables = (1 << 7) | (1 << 8);
-
-        RaycastHit hit;
+    {RaycastHit hit;
 
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, interactables))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
         {
             //Debug.Log("Hit");
             StopCoroutine(TriggerAHit(hit.transform.gameObject));
