@@ -197,6 +197,7 @@ public class UIManager : MonoBehaviour
     public void quitHandle()
     {
         Destroy(GameObject.Find("Music"));
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

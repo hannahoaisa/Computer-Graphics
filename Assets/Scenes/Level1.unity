@@ -11047,7 +11047,7 @@ MonoBehaviour:
   activatorsOR: []
   openDoorSound: {fileID: 1135601165}
   closeDoorSound: {fileID: 592903805}
-  isButtonActivated: 0
+  areInputsActive: 0
   areDoorsOpen: 0
 --- !u!1 &1065799915 stripped
 GameObject:
@@ -12410,7 +12410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a9fcb476a9d14f8890088a958cc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEagleActive: 1
+  isEagleActive: 0
   Erin: {fileID: 1503275859}
   Eagle: {fileID: 1464107102}
   ErinMesh: {fileID: 1503275858}
@@ -16124,7 +16124,7 @@ MonoBehaviour:
   canRun: 1
   isWalking: 0
   isDead: 0
-  runSpeed: 9
+  runSpeed: 7
   runningKey: 304
   gravity: {fileID: 858894109}
   customGravity: {fileID: 1503275863}

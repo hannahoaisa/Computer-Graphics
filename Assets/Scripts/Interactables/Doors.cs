@@ -29,6 +29,8 @@ public class Doors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        areInputsActive = false;
+
         // The following inputs must ALL be on for door to open
         foreach (Activator input in activatorsAND)
         {
