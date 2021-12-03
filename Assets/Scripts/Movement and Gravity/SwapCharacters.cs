@@ -25,7 +25,6 @@ public class SwapCharacters : MonoBehaviour
         ErinCamera.GetComponent<AudioListener>().enabled = true;
         EagleCamera.GetComponent<Camera>().enabled = false;
         EagleCamera.GetComponent<AudioListener>().enabled = false;
-        Erin.GetComponent<Rigidbody>().isKinematic = false;
         Eagle.GetComponent<Rigidbody>().isKinematic = true;
     }
 
@@ -54,7 +53,6 @@ public class SwapCharacters : MonoBehaviour
                 ErinCamera.GetComponent<AudioListener>().enabled = false;
                 EagleCamera.GetComponent<Camera>().enabled = true;
                 EagleCamera.GetComponent<AudioListener>().enabled = true;
-                Erin.GetComponent<Rigidbody>().isKinematic = true;
                 Eagle.GetComponent<Rigidbody>().isKinematic = false;
             }
 
@@ -69,7 +67,6 @@ public class SwapCharacters : MonoBehaviour
                 ErinCamera.GetComponent<AudioListener>().enabled = true;
                 EagleCamera.GetComponent<Camera>().enabled = false;
                 EagleCamera.GetComponent<AudioListener>().enabled = false;
-                Erin.GetComponent<Rigidbody>().isKinematic = false;
                 Eagle.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
