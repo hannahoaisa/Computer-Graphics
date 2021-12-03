@@ -17,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 17dee8d8c8ec48b469dceee4324d3740
-  - enabled: 1
-    path: Assets/Scenes/Huge Box Level.unity
-    guid: 046f7f473c252c04ca00646f5d19f6e9
   m_configObjects: {}

@@ -62,23 +62,21 @@ public class Buttons : MonoBehaviour
         settingsMenu.SetActive(false);
         effectsSlide.SetActive(false);
         musicSlide.SetActive(false);
+        loadMenu.SetActive(false);
         sensitiveSlide.SetActive(false);
         mainMenu.SetActive(true);
         settingsBack.SetActive(false);
         controlsBack.SetActive(false);
     }
-
     public void slot1Handle()
     {
         int scene = PlayerPrefs.GetInt("1", -1);
         if(scene != -1)
         {
             SaveLoad.loadGame("1");
+            mainMenu.SetActive(false);
         }
-        else
-        {
-            SaveLoad.loadGame("0");
-        }
+        loadMenu.SetActive(false);
     }
     public void slot2Handle()
     {
@@ -86,11 +84,9 @@ public class Buttons : MonoBehaviour
         if (scene != -1)
         {
             SaveLoad.loadGame("2");
+            mainMenu.SetActive(false);
         }
-        else
-        {
-            SaveLoad.loadGame("0");
-        }
+        loadMenu.SetActive(false);
     }
     public void slot3Handle()
     {
@@ -98,10 +94,8 @@ public class Buttons : MonoBehaviour
         if (scene != -1)
         {
             SaveLoad.loadGame("3");
+            mainMenu.SetActive(false);
         }
-        else
-        {
-            SaveLoad.loadGame("0");
-        }
+        loadMenu.SetActive(false);
     }
 }

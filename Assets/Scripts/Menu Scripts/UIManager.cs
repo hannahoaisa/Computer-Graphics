@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] showOnSettings;
     public GameObject[] showOnSave;
     public saveLoad SaveLoad;
+    public AudioSource theMusic;
     public bool isPaused = false;
     public bool isDead = false;
     public bool isGameWon;
@@ -195,6 +196,7 @@ public class UIManager : MonoBehaviour
     }
     public void quitHandle()
     {
+        Destroy(GameObject.Find("Music"));
         SceneManager.LoadScene(0);
     }
 
