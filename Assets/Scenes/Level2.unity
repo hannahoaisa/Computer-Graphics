@@ -12848,7 +12848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 710871404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1441817014}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: nextHandle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &710871404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22810,7 +22822,6 @@ MonoBehaviour:
   gravityUI: {fileID: 51275844}
   objective: {fileID: 971321975}
   resumeButton: {fileID: 108346654}
-  nextButton: {fileID: 710871403}
   restartFromPause: {fileID: 86661269}
   restartFromDeath: {fileID: 1820671639}
   restartFromWin: {fileID: 1905656399}
