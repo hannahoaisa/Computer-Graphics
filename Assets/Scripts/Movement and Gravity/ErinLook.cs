@@ -93,8 +93,8 @@ public class ErinLook : MonoBehaviour
         // If 10 ms have passed and the object still has the tag, then it likely doesn't have a script to revert it itself
         if (hitObject.tag == "ErinHit")
         {
-            //Debug.Log("Reverted");
             hitObject.tag = prevTag;
+            //Debug.Log("Reverted");
         }
     }
 }

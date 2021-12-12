@@ -49,6 +49,7 @@ public class StandupButton : Activator
         {
             gameObject.tag = "Untagged";
             _newInteraction = true;
+            //Debug.Log("ErinHit");
         }
         // If Eagle interacted with it
         else if (gameObject.tag == "EagleHit"
@@ -56,6 +57,7 @@ public class StandupButton : Activator
         {
             gameObject.tag = "Untagged";
             _newInteraction = true;
+            //Debug.Log("EagleHit");
         }
         // If someone interacted with it but isn't allowed to
         else if (gameObject.tag != "Untagged")
